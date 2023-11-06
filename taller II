@@ -1,0 +1,39 @@
+importar  archivos csv
+
+def  realizar_encuesta ():
+    print ( "Bienvenido a la encuesta." )
+    nombre  =  input ( "Por favor, ingresa tu nombre: " )
+    edad  =  input ( "¿Cuál es tu edad? " )
+    respuesta  =  input ( "¿Te gusta programar en Python? (Sí/No) " )
+
+    con  open ( "encuesta.csv" , mode = "a" , newline = "" ) como  archivo :
+        escritor  =  csv . escritor ( archivo )
+        escritor . writerow ([ nombre , edad , respuesta ])
+
+    print ( "¡Gracias por completar la encuesta!" )
+
+def  ver_resultados ():
+    prueba :
+        con  open ( "encuesta.csv" , mode = "r" ) como  archivo :
+            lector  =  csv . lector ( archivo )
+            para  fila  en  lector :
+                print ( f"Nombre: { fila [ 0 ] } , Edad: { fila [ 1 ] } , Respuesta: { fila [ 2 ] } " )
+    excepto  FileNotFoundError :
+        print ( "Todavía no hay encuestas completadas." )
+
+si  __nombre__  ==  "__principal__" :
+    mientras que  Verdadero :
+        print ( " \n 1. Realizar encuesta" )
+        print ( "2. Ver resultados" )
+        imprimir ( "3. Salir" )
+        opcion  =  input ( "Selecciona una opción: " )
+
+        si  opcion  ==  "1" :
+            realizar_encuesta ()
+         opción  elif ==  "2" :
+            ver_resultados ()
+         opción  elif ==  "3" :
+            print ( "Gracias por usar la aplicación de encuesta. ¡Hasta luego!" )
+            romper
+        más :
+            print ( "Opción no válida. Por favor, selecciona una opción válida." )
